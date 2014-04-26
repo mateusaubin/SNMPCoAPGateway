@@ -52,24 +52,22 @@ namespace SNMPCoAPGateway.SNMP
 
             Engine = Container.Resolve<SnmpEngine>();
 
-
-
             const int port = 5512;
-            //using (var Engine = Container.Resolve<SnmpEngine>())
-            //{
-                Engine.ExceptionRaised += (sender, e) =>
-                {
-                    System.Diagnostics.Debugger.Break();
-                    throw e.Exception;
-                };
 
-                Engine.Listener.ClearBindings();
-                if (Socket.OSSupportsIPv4)
-                    Engine.Listener.AddBinding(new IPEndPoint(IPAddress.Any, port));
 
-                if (Socket.OSSupportsIPv6)
-                    Engine.Listener.AddBinding(new IPEndPoint(IPAddress.IPv6Any, port));
-            //}
+
+            Engine.ExceptionRaised += (sender, e) =>
+            {
+                System.Diagnostics.Debugger.Break();
+                throw e.Exception;
+            };
+
+            Engine.Listener.ClearBindings();
+            if (Socket.OSSupportsIPv4)
+                Engine.Listener.AddBinding(new IPEndPoint(IPAddress.Loopback, port));
+
+            if (Socket.OSSupportsIPv6)
+                Engine.Listener.AddBinding(new IPEndPoint(IPAddress.IPv6Any, port));
         }
     }
 }
