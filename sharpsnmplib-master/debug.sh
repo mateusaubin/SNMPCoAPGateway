@@ -1,0 +1,2 @@
+export EnableNuGetPackageRestore=true
+xbuild SharpSnmpLib.Mono.sln

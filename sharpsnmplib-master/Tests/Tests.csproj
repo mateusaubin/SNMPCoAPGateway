@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE484004-0780-4730-9D91-D4597341B56E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lextm.SharpSnmpLib</RootNamespace>
+    <AssemblyName>SharpSnmpLib.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SourceAnalysisOverrideSettingsFile>C:\Users\Administrator\AppData\Roaming\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>sharpsnmplib.tests.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Moq, Version=4.2.1312.1622, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Moq.4.2.1312.1622\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\lib\WatchDog.cs">
+      <Link>WatchDog.cs</Link>
+    </Compile>
+    <Compile Include="Messaging\Tests\ListenerBindingTestFixture.cs" />
+    <Compile Include="Messaging\Tests\MessageFactoryTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\EngineGroupTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\NormalSnmpContextTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\SnmpContextFactoryTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysORUpTimeTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysORIndexTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysORIDTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysORDescrTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysORLastChangeTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysLocationTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysORTableTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysServicesTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysNameTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysContactTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysDescrTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysObjectIdTestFixture.cs" />
+    <Compile Include="Objects\Tests\SysUpTimeTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\InformRequestMessageReceivedEventArgsTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\TrapV2MessageReceivedEventArgsTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\TrapV1MessageReceivedEventArgsTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\TrapV2MessageHandlerTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\TrapV1MessageHandlerTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\GetBulkMessageHandlerTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\GetMessageHandlerTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\GetNextMessageHandlerTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\GetNextV1MessageHandlerTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\GetV1MessageHandlerTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\InformRequestMessageHandlerTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\SetMessageHandlerTestFixture.cs" />
+    <Compile Include="Pipeline\Tests\SetV1MessageHandlerTestFixture.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\Tests\AuthenticationProviderExtensionTestFixture.cs" />
+    <Compile Include="Security\Tests\DefaultAuthenticationProviderTestFixture.cs" />
+    <Compile Include="Security\Tests\DefaultPrivacyProviderTestFixture.cs" />
+    <Compile Include="Security\Tests\DESPrivacyProviderTestFixture.cs" />
+    <Compile Include="Security\Tests\MD5AuthenticationProviderTestFixture.cs" />
+    <Compile Include="Security\Tests\PrivacyProviderExtensionTestFixture.cs" />
+    <Compile Include="Security\Tests\SaltGeneratorTestFixture.cs" />
+    <Compile Include="Security\Tests\SHA1AuthenticationProviderTestFixture.cs" />
+    <Compile Include="Security\Tests\UserRegistryTestFixture.cs" />
+    <Compile Include="Security\Tests\UserTestFixture.cs" />
+    <Compile Include="Tests\GetBulkRequestPduTestFixture.cs" />
+    <Compile Include="Tests\GetNextRequestPduTestFixture.cs" />
+    <Compile Include="Tests\GetRequestPduTestFixture.cs" />
+    <Compile Include="Tests\HeaderTestFixture.cs" />
+    <Compile Include="Tests\InformRequestPduTestFixture.cs" />
+    <Compile Include="Tests\MalformedPduTestFixture.cs" />
+    <Compile Include="Tests\ReportPduTestFixture.cs" />
+    <Compile Include="Tests\ResponsePduTestFixture.cs" />
+    <Compile Include="Tests\ScopeTestFixture.cs" />
+    <Compile Include="Tests\SecurityParametersTestFixture.cs" />
+    <Compile Include="Tests\SetRequestPduTestFixture.cs" />
+    <Compile Include="Tests\SnmpDataExtensionTestFixture.cs" />
+    <Compile Include="Tests\StreamExtensionTestFixture.cs" />
+    <Compile Include="Tests\EndOfMibViewTestFixture.cs" />
+    <Compile Include="Messaging\Tests\ManagerTestFixture.cs" />
+    <Compile Include="Tests\ByteToolTestFixture.cs" />
+    <Compile Include="Tests\Counter32TestFixture.cs" />
+    <Compile Include="Tests\Counter64TestFixture.cs" />
+    <Compile Include="Tests\Gauge32TestFixture.cs" />
+    <Compile Include="Messaging\Tests\GetRequestMessageTestFixture.cs" />
+    <Compile Include="Messaging\Tests\ResponseMessageTestFixture.cs" />
+    <Compile Include="Tests\Integer32TestFixture.cs" />
+    <Compile Include="Tests\IPTestFixture.cs" />
+    <Compile Include="Tests\NoSuchInstanceTestFixture.cs" />
+    <Compile Include="Tests\NoSuchObjectTestFixture.cs" />
+    <Compile Include="Tests\NullTestFixture.cs" />
+    <Compile Include="Tests\ObjectIdentifierTestFixture.cs" />
+    <Compile Include="Security\Tests\LevelsTestFixture.cs" />
+    <Compile Include="Tests\OctetStringTestFixture.cs" />
+    <Compile Include="Tests\OpaqueTestFixture.cs" />
+    <Compile Include="Tests\SequenceTestFixture.cs" />
+    <Compile Include="Tests\DataFactoryTestFixture.cs" />
+    <Compile Include="Tests\TimeticksTestFixture.cs" />
+    <Compile Include="Messaging\Tests\TrapV1MessageTestFixture.cs" />
+    <Compile Include="Tests\TrapV1PduTestFixture.cs" />
+    <Compile Include="Messaging\Tests\TrapV2MessageTestFixture.cs" />
+    <Compile Include="Tests\VariableTestFixture.cs" />
+    <Compile Include="Tests\WatchdogTestFixture.cs" />
+    <Compile Include="Tests\TrapV2PduTestFixture.cs" />
+    <None Include="packages.config" />
+    <None Include="Resources\v3authNoPriv_BER_Issue" />
+    <None Include="sharpsnmplib.tests.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fivevarbinds.dat" />
+    <None Include="Resources\get.dat" />
+    <None Include="Resources\getresponse.dat" />
+    <None Include="Resources\novarbind.dat" />
+    <None Include="Resources\onevarbind.dat" />
+    <None Include="Resources\trapv3auth" />
+    <None Include="Resources\trapv3authpriv" />
+    <None Include="Resources\twovarbinds.dat" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trapv3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpSnmpLib\SharpSnmpLib.csproj">
+      <Project>{286DE6DB-8F95-4BD4-86A2-86488D2E0EE1}</Project>
+      <Name>SharpSnmpLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpSnmpLib\SharpSnmpLib.Engine.csproj">
+      <Project>{CD0F4B22-8235-49B1-A144-462CB8FD4973}</Project>
+      <Name>SharpSnmpLib.Engine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
