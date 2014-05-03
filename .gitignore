@@ -151,3 +151,5 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+sharpsnmplib-master/lib/SharedAssemblyInfo.cs
+sharpsnmplib-master/lib/SharedAssemblyInfo.vb
