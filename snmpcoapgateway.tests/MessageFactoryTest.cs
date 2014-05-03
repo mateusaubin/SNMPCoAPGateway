@@ -60,13 +60,14 @@ namespace SNMPCoAPGateway.Tests
             var community = new OctetString("public");
             var vlist = new List<Variable> { 
                 new Variable(
-                    new ObjectIdentifier(".1.3.6.1.2.1.1.5.0")
+                    new ObjectIdentifier(".1.3.6.1.2.1.1.5.0") //sysname
                 )
             };
             var snmpMsg = new GetRequestMessage(Rand.Next(), version, community, vlist);
 
             var msg = Factory.Create(snmpMsg);
 
+            Assert.IsTrue(msg.Data.All(x => x.Operation == Operation.Get));
             Assert.AreEqual(vlist.Count, msg.Data.Count);
         }
     }

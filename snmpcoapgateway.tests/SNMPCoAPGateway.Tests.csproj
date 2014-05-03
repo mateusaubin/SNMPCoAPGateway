@@ -45,10 +45,15 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoAPResourceTest.cs" />
     <Compile Include="MessageFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\coap.net-master\coap.net\CoAP.csproj">
+      <Project>{5DAEA65A-446A-446D-8508-26ECA88D2498}</Project>
+      <Name>CoAP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sharpsnmplib-master\SharpSnmpLib\SharpSnmpLib.csproj">
       <Project>{286DE6DB-8F95-4BD4-86A2-86488D2E0EE1}</Project>
       <Name>SharpSnmpLib</Name>
@@ -56,6 +61,10 @@
     <ProjectReference Include="..\sharpsnmplib-master\SharpSnmpLib\SharpSnmpLib.Engine.csproj">
       <Project>{CD0F4B22-8235-49B1-A144-462CB8FD4973}</Project>
       <Name>SharpSnmpLib.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SNMPCoAPGateway.CoAPAgent\SNMPCoAPGateway.CoAPAgent.csproj">
+      <Project>{A8A5A867-906E-420E-ABDC-693D428E436F}</Project>
+      <Name>SNMPCoAPGateway.CoAPAgent</Name>
     </ProjectReference>
     <ProjectReference Include="..\snmpcoapgateway.snmp\SNMPCoAPGateway.SNMP.csproj">
       <Project>{44AD6D75-9CEA-4927-965A-56293593C962}</Project>

@@ -5,12 +5,13 @@ using System.Text;
 using Lextm.SharpSnmpLib.Messaging;
 using Lextm.SharpSnmpLib;
 using SNMPCoAPGateway.Messages;
+using SNMPCoAPGateway.SNMP.Pipeline;
 
 namespace SNMPCoAPGateway.SNMP
 {
     public class SNMPMessageFactory : IMessageFactory
     {
-        public Message Create(ISnmpMessage message)
+        public Message FromRequest(ISnmpMessage message)
         {
             IEnumerable<DataUnit> msgData = ExtractMessageData(message.Scope.Pdu);
 
@@ -25,14 +26,13 @@ namespace SNMPCoAPGateway.SNMP
 
             foreach (var item in pdu.Variables)
             {
-                DataType type = DetectDataType(item.Data.TypeCode);
+                var oid = string.Join(".", item.Id.ToNumerical());
+                DataType type = item.DetectDataType();
 
-                DataUnit data = new DataUnit(item.Id.ToString(), type, operation);
+                DataUnit data = new DataUnit(oid, type, operation);
 
-                if (type != DataType.Unknown)
+                if (operation == Operation.Set)
                     data.Value = item.Data.ToString();
-
-                data.Validate();
 
                 yield return data;
             }
@@ -62,32 +62,6 @@ namespace SNMPCoAPGateway.SNMP
             }
         }
 
-        private DataType DetectDataType(SnmpType snmpType)
-        {
-            switch (snmpType)
-            {
-                case SnmpType.Integer32:
-                    return DataType.Int;
-                case SnmpType.OctetString:
-                    return DataType.String;
-                case SnmpType.Null:
-                case SnmpType.Opaque:
-                    return DataType.Unknown;
-                case SnmpType.IPAddress:
-                case SnmpType.NetAddress:
-                    return DataType.IPAddress;
-                case SnmpType.Counter32:
-                case SnmpType.Gauge32:
-                    return DataType.UInt;
-                case SnmpType.TimeTicks:
-                    return DataType.TimeSpan;
-                case SnmpType.Counter64:
-                    return DataType.ULong;
-                default:
-                    throw new UnsupportedTypeException();
-            }
-        }
-
         public bool CanHandle(object message)
         {
             return message is ISnmpMessage;
@@ -98,7 +72,20 @@ namespace SNMPCoAPGateway.SNMP
             if (!this.CanHandle(message))
                 throw new UnsupportedTypeException("Unrecognized message type");
 
-            return this.Create((ISnmpMessage)message);
+            return this.FromRequest((ISnmpMessage)message);
+        }
+
+        public IList<Variable> ToResponse(Message response)
+        {
+            return this.ToResponseIEnumerable(response).ToList();
+        }
+
+        private IEnumerable<Variable> ToResponseIEnumerable(Message response)
+        {
+            foreach (var item in response.Data)
+            {
+                yield return item.ToVariable();
+            }
         }
     }
 }

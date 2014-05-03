@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pipeline\CoAPEngine.cs" />
+    <Compile Include="Pipeline\VariableExtensions.cs" />
     <Compile Include="SNMPMessageFactory.cs" />
     <Compile Include="Pipeline\ForwarderHandler.cs" />
     <Compile Include="Program.cs" />
@@ -73,6 +75,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\coap.net-master\coap.net\CoAP.csproj">
+      <Project>{5DAEA65A-446A-446D-8508-26ECA88D2498}</Project>
+      <Name>CoAP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sharpsnmplib-master\SharpSnmpLib\SharpSnmpLib.csproj">
       <Project>{286DE6DB-8F95-4BD4-86A2-86488D2E0EE1}</Project>
       <Name>SharpSnmpLib</Name>

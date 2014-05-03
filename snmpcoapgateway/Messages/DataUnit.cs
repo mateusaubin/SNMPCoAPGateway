@@ -22,10 +22,10 @@ namespace SNMPCoAPGateway
             this.Type = type;
         }
 
-        public void Validate()
+        public static DataUnit Copy(DataUnit src)
         {
-            if (Operation == Operation.Set && Value == null)
-                throw new InvalidMessageDataException();
+            var result = new DataUnit(src.Identifier, src.Type, src.Operation);
+            return result;
         }
     }
 }

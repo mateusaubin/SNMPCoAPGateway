@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpSnmpLib", "sharpsnmpli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpSnmpLib.Engine", "sharpsnmplib-master\sharpsnmplib\SharpSnmpLib.Engine.csproj", "{CD0F4B22-8235-49B1-A144-462CB8FD4973}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNMPCoAPGateway.CoAPAgent", "SNMPCoAPGateway.CoAPAgent\SNMPCoAPGateway.CoAPAgent.csproj", "{A8A5A867-906E-420E-ABDC-693D428E436F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,16 @@ Global
 		{CD0F4B22-8235-49B1-A144-462CB8FD4973}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CD0F4B22-8235-49B1-A144-462CB8FD4973}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CD0F4B22-8235-49B1-A144-462CB8FD4973}.Release|x86.ActiveCfg = Release|Any CPU
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Debug|x86.ActiveCfg = Debug|x86
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Debug|x86.Build.0 = Debug|x86
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Release|Any CPU.ActiveCfg = Release|x86
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Release|x86.ActiveCfg = Release|x86
+		{A8A5A867-906E-420E-ABDC-693D428E436F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
