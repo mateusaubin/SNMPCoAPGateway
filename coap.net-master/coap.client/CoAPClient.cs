@@ -25,9 +25,15 @@ namespace CoAP.Examples
                 if (arg[0] == '-')
                 {
                     if (arg.Equals("-l"))
+                    {
                         loop = true;
-                    if (arg.Equals("-e"))
+                        byEvent = false;
+                    }
+                    else if (arg.Equals("-e"))
+                    {
                         byEvent = true;
+                        loop = false;
+                    }
                     else
                         Console.WriteLine("Unknown option: " + arg);
                 }
