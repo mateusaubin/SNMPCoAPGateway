@@ -45,8 +45,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\sharpsnmplib-master\SharpSnmpLib\SharpSnmpLib.csproj">
@@ -56,6 +56,10 @@
     <ProjectReference Include="..\sharpsnmplib-master\SharpSnmpLib\SharpSnmpLib.Engine.csproj">
       <Project>{CD0F4B22-8235-49B1-A144-462CB8FD4973}</Project>
       <Name>SharpSnmpLib.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\snmpcoapgateway.snmp\SNMPCoAPGateway.SNMP.csproj">
+      <Project>{44AD6D75-9CEA-4927-965A-56293593C962}</Project>
+      <Name>SNMPCoAPGateway.SNMP</Name>
     </ProjectReference>
     <ProjectReference Include="..\SNMPCoAPGateway\SNMPCoAPGateway.csproj">
       <Project>{A7A7F9A8-5581-491E-A592-90E7BE92D17D}</Project>

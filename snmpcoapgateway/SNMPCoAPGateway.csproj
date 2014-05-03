@@ -47,12 +47,14 @@
   <ItemGroup>
     <Compile Include="DataType.cs" />
     <Compile Include="EnumUtil.cs" />
-    <Compile Include="Message.cs" />
-    <Compile Include="MessageData.cs" />
-    <Compile Include="MessageType.cs" />
+    <Compile Include="Exceptions\InvalidMessageDataException.cs" />
+    <Compile Include="Messages\IMessageFactory.cs" />
+    <Compile Include="Messages\Message.cs" />
+    <Compile Include="Messages\DataUnit.cs" />
+    <Compile Include="Messages\Operation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnsupportedOperationException.cs" />
-    <Compile Include="UnsupportedTypeException.cs" />
+    <Compile Include="Exceptions\UnsupportedOperationException.cs" />
+    <Compile Include="Exceptions\UnsupportedTypeException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

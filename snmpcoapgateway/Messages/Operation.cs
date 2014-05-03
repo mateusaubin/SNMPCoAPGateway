@@ -5,10 +5,10 @@ using System.Text;
 
 namespace SNMPCoAPGateway
 {
-    public enum MessageType
+    public enum Operation
     {
         Unknown,
-        Request,
-        Response
+        Get,
+        Set
     }
 }

@@ -20,9 +20,12 @@ namespace SNMPCoAPGateway.SNMP.Pipeline
                 throw new ArgumentNullException("store");
             }
 
-            var commonFactory = new MessageFactory();
+
+            var commonFactory = new SNMPMessageFactory();
 
             var msg = commonFactory.Create(context.Request);
+
+
 
         }
     }
