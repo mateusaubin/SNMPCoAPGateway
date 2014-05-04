@@ -7,8 +7,11 @@ namespace SNMPCoAPGateway.Messages
 {
     public interface IMessageFactory
     {
-        bool CanHandle(object message);
+        bool CanHandle(object input);
 
-        Message Create(object message);
+        Message ToForward(object message);
+
+        object FromForward(Message message);
     }
+
 }

@@ -11,7 +11,25 @@ namespace SNMPCoAPGateway.SNMP
 {
     public class SNMPMessageFactory : IMessageFactory
     {
-        public Message FromRequest(ISnmpMessage message)
+        public bool CanHandle(object input)
+        {
+            return (input is ISnmpMessage);
+        }
+
+        public Message ToForward(object message)
+        {
+            if (!CanHandle(message))
+                throw new UnsupportedTypeException("Unknown message type");
+
+            return this.ToRequest((ISnmpMessage)message);
+        }
+
+        public object FromForward(Message message)
+        {
+            return this.ToResponse(message).ToList();
+        }
+
+        private Message ToRequest(ISnmpMessage message)
         {
             IEnumerable<DataUnit> msgData = ExtractMessageData(message.Scope.Pdu);
 
@@ -62,25 +80,7 @@ namespace SNMPCoAPGateway.SNMP
             }
         }
 
-        public bool CanHandle(object message)
-        {
-            return message is ISnmpMessage;
-        }
-
-        public Message Create(object message)
-        {
-            if (!this.CanHandle(message))
-                throw new UnsupportedTypeException("Unrecognized message type");
-
-            return this.FromRequest((ISnmpMessage)message);
-        }
-
-        public IList<Variable> ToResponse(Message response)
-        {
-            return this.ToResponseIEnumerable(response).ToList();
-        }
-
-        private IEnumerable<Variable> ToResponseIEnumerable(Message response)
+        private IEnumerable<Variable> ToResponse(Message response)
         {
             foreach (var item in response.Data)
             {

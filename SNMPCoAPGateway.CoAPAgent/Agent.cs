@@ -20,7 +20,8 @@ namespace SNMPCoAPGateway.CoAPAgent
             : base(Spec)
 #endif
         {
-            AddResource(new SysName());
+            AddResource(new SNMPResource<SysName>());
+            AddResource(new SNMPResource<SysUpTime>());
         }
 
         static void Main(String[] args)

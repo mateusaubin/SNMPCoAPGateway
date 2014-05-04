@@ -6,16 +6,17 @@ using SNMPCoAPGateway.Engine;
 using CoAP;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 
 namespace SNMPCoAPGateway.SNMP.Pipeline
 {
     class CoAPEngine : IEngine
     {
-        public Uri AgentAddress
+        public string AgentAddress
         {
             get
             {
-                return new Uri("coap://localhost");
+                return "coap://localhost";
             }
         }
 
@@ -39,7 +40,8 @@ namespace SNMPCoAPGateway.SNMP.Pipeline
         private DataUnit ToResponseData(DataUnit data, Response coapRes)
         {
             var response = DataUnit.Copy(data);
-            response.Value = coapRes.PayloadString;
+            var val = Serializer.FromBinary(data.Type, coapRes.Payload);
+            response.Value = val;
             return response;
         }
 
@@ -61,7 +63,7 @@ namespace SNMPCoAPGateway.SNMP.Pipeline
             request.Token = TokenManager.Instance.AcquireToken();
 
             if (data.Operation == Operation.Set)
-                request.PayloadString = data.Value.ToString();
+                request.Payload = Serializer.ToBinary(data.Type, data.Value);
 
             return request;
         }

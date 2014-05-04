@@ -13,8 +13,6 @@ namespace SNMPCoAPGateway.Tests
         [TestMethod]
         public void SysNameTest()
         {
-            var r = new SysName();
-            var x = r.Value();
         }
     }
 }

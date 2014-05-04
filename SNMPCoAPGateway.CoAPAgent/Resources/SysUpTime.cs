@@ -5,9 +5,9 @@ using System.Text;
 
 namespace SNMPCoAPGateway.CoAPAgent.Resources
 {
-    class SysName : ISNMPResource
+    class SysUpTime : ISNMPResource
     {
-        protected string MACHINE_NAME = Environment.MachineName;
+        protected readonly DateTime START_TIME = DateTime.Now;
 
         public bool CanGet
         {
@@ -16,28 +16,28 @@ namespace SNMPCoAPGateway.CoAPAgent.Resources
 
         public bool CanSet
         {
-            get { return true; }
+            get { return false; }
         }
 
         public string Identifier
         {
-            get { return "1.3.6.1.2.1.1.5.0"; }
+            get { return "1.3.6.1.2.1.1.3.0"; }
         }
 
         public DataType Type
         {
-            get { return DataType.String; }
+            get { return DataType.TimeSpan; }
         }
 
         public object Value
         {
             get
             {
-                return MACHINE_NAME;
+                return DateTime.Now - START_TIME;
             }
             set
             {
-                MACHINE_NAME = (string)value;
+                throw new NotImplementedException();
             }
         }
     }

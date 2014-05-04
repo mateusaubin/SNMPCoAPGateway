@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="DataType.cs" />
     <Compile Include="Engine\IEngine.cs" />
+    <Compile Include="Engine\Serializer.cs" />
     <Compile Include="EnumUtil.cs" />
     <Compile Include="Exceptions\InvalidMessageDataException.cs" />
     <Compile Include="Messages\IMessageFactory.cs" />

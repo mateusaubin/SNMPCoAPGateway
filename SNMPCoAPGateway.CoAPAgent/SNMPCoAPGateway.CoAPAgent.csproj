@@ -45,13 +45,19 @@
   <ItemGroup>
     <Compile Include="Agent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\GatewayResource.cs" />
+    <Compile Include="Resources\SNMPResource.cs" />
+    <Compile Include="Resources\ISNMPResource.cs" />
     <Compile Include="Resources\SysName.cs" />
+    <Compile Include="Resources\SysUpTime.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\coap.net-master\coap.net\CoAP.csproj">
       <Project>{5DAEA65A-446A-446D-8508-26ECA88D2498}</Project>
       <Name>CoAP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\snmpcoapgateway\SNMPCoAPGateway.csproj">
+      <Project>{A7A7F9A8-5581-491E-A592-90E7BE92D17D}</Project>
+      <Name>SNMPCoAPGateway</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

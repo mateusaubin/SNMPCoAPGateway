@@ -18,7 +18,7 @@ namespace SNMPCoAPGateway.Tests
     {
         private Random Rand { get; set; }
 
-        private IMessageFactory Factory { get; set; }
+        private SNMPMessageFactory Factory { get; set; }
 
         public MessageFactoryTest()
         {
@@ -65,7 +65,7 @@ namespace SNMPCoAPGateway.Tests
             };
             var snmpMsg = new GetRequestMessage(Rand.Next(), version, community, vlist);
 
-            var msg = Factory.Create(snmpMsg);
+            var msg = Factory.ToForward(snmpMsg);
 
             Assert.IsTrue(msg.Data.All(x => x.Operation == Operation.Get));
             Assert.AreEqual(vlist.Count, msg.Data.Count);
